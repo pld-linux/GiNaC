@@ -4,6 +4,7 @@ Version:	1.1.0
 Release:	1
 License:	GPL
 Group:		Sciences/Mathematics
+# Source0-md5:	30c86d96a9d9d689ff0981409b038906
 Source0:	ftp://ftpthep.physik.uni-mainz.de/pub/GiNaC/%{name}-%{version}.tar.bz2
 Source1:	ginac.png
 URL:		http://www.ginac.de/
@@ -19,9 +20,7 @@ programming language.
 %package devel
 Summary:	Libraries, includes and more to develop GiNaC applications
 Group:		Development/C++
-Requires:	%{lib_name} = %{version}-%{release}
-Provides:	%{name}-devel = %{version}-%{release}
-Provides:	%{lib_name_orig}-devel = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 GiNaC (which stands for "GiNaC is Not a CAS (Computer Algebra
@@ -50,10 +49,10 @@ GiNaC archives.
 %setup -q
 
 %build
-%define __libtoolize /bin/true
-%configure CFLAGS=" -O2 " CXXFLAGS=" -O2 "
-%make
-make check
+%configure
+%{__make}
+
+%{__make} check
 
 %install
 rm -rf $RPM_BUILD_ROOT
