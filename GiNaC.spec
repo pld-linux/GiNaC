@@ -1,9 +1,10 @@
 Summary:	C++ class library for symbolic calculations
+Summary(pl):	Biblioteka klas C++ do obliczeñ symbolicznych
 Name:		GiNaC
 Version:	1.1.0
 Release:	1
 License:	GPL
-Group:		Sciences/Mathematics
+Group:		Libraries
 # Source0-md5:	30c86d96a9d9d689ff0981409b038906
 Source0:	ftp://ftpthep.physik.uni-mainz.de/pub/GiNaC/%{name}-%{version}.tar.bz2
 Source1:	ginac.png
@@ -17,33 +18,41 @@ GiNaC (which stands for "GiNaC is Not a CAS (Computer Algebra
 System)") is an open framework for symbolic computation within the C++
 programming language.
 
+%description -l pl
+GiNaC (co oznacza "GiNaC is Not a CAS (Computer Algebra System)") to
+otwarty szkielet do obliczeñ symbolicznych w jêzyku programowania C++.
+
 %package devel
-Summary:	Libraries, includes and more to develop GiNaC applications
-Group:		Development/C++
+Summary:	Header files and more to develop GiNaC applications
+Summary(pl):	Pliki nag³ówkowe i inne do tworzenia aplikacji GiNaC
+Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
-GiNaC (which stands for "GiNaC is Not a CAS (Computer Algebra
-System)") is an open framework for symbolic computation within the C++
-programming language.
-
-This is the libraries, include files and other resources you can use
+This package contains include files and other resources you can use
 to develop GiNaC applications.
+
+%description devel -l pl
+Ten pakiet zawiera pliki nag³ówkowe i inne zasoby, których mo¿na
+u¿ywaæ do rozwiajania aplikacji opartych na GiNaC.
 
 %package utils
 Summary:	GiNaC-related utilities
-Group:		Sciences/Mathematics
+Summary(pl):	Narzêdzia zwi±zane z GiNaC
+Group:		Applications/Science
 Requires:	%{name} = %{version}-%{release}
 
 %description utils
-GiNaC (which stands for "GiNaC is Not a CAS (Computer Algebra
-System)") is an open framework for symbolic computation within the C++
-programming language.
-
 This package includes the ginsh ("GiNaC interactive shell") which
 provides a simple and easy-to-use CAS-like interface to GiNaC for
 non-programmers, and the tool "viewgar" which displays the contents of
 GiNaC archives.
+
+%description utils -l pl
+Ten pakiet zawiera ginsh (interaktywn± pow³okê GiNaC, ktora udostêpnia
+prosty i ³atwy w u¿yciu, podobny do CAS interfejs do GiNaC dla osób
+nie bêd±cych programistami) oraz narzêdzie viewgar, wy¶wietlaj±ce
+zawarto¶æ archiwów GiNaC.
 
 %prep
 %setup -q
@@ -60,32 +69,35 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install
 
 %clean
-rm -rf ${RPM_BUILD_ROOT}
+rm -rf $RPM_BUILD_ROOT
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
 %post devel
-%_install_info ginac.info
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir %{_infodir} >/dev/null 2>&1
 
 %preun devel
-%_remove_install_info ginac.info
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir %{_infodir} >/dev/null 2>&1
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%attr(755,root,root) %{_bindir}/ginac-config
+%attr(755,root,root) %{_libdir}/*.so
 %{_libdir}/*.la
-%{_libdir}/*.so
-%{_includedir}/ginac/*.h
+%{_includedir}/ginac
 %{_infodir}/*.info*
 %{_mandir}/man1/ginac-config.1*
-%attr(755,root,root) %{_bindir}/ginac-config
 %{_aclocaldir}/*
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/*.a
 
 %files utils
 %defattr(644,root,root,755)
@@ -93,5 +105,3 @@ rm -rf ${RPM_BUILD_ROOT}
 %attr(755,root,root) %{_bindir}/viewgar
 %{_mandir}/man1/ginsh.1*
 %{_mandir}/man1/viewgar.1*
-%_menudir/%name-utils
-%_iconsdir/ginac.png
