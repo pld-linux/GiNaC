@@ -8,6 +8,7 @@ Group:		Libraries
 # Source0-md5:	30c86d96a9d9d689ff0981409b038906
 Source0:	ftp://ftpthep.physik.uni-mainz.de/pub/GiNaC/%{name}-%{version}.tar.bz2
 URL:		http://www.ginac.de/
+BuildRequires:	automake
 BuildRequires:	cln-devel >= 1.1
 BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
