@@ -7,7 +7,6 @@ License:	GPL
 Group:		Libraries
 # Source0-md5:	30c86d96a9d9d689ff0981409b038906
 Source0:	ftp://ftpthep.physik.uni-mainz.de/pub/GiNaC/%{name}-%{version}.tar.bz2
-Source1:	ginac.png
 URL:		http://www.ginac.de/
 BuildRequires:	cln-devel >= 1.1
 BuildRequires:	readline-devel
@@ -35,6 +34,18 @@ to develop GiNaC applications.
 %description devel -l pl
 Ten pakiet zawiera pliki nag³ówkowe i inne zasoby, których mo¿na
 u¿ywaæ do rozwiajania aplikacji opartych na GiNaC.
+
+%package static
+Summary:	Static GiNaC library
+Summary(pl):	Statyczna biblioteka GiNaC
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+Static GiNaC library.
+
+%description static -l pl
+Statyczna biblioteka GiNaC.
 
 %package utils
 Summary:	GiNaC-related utilities
