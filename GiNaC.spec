@@ -30,7 +30,6 @@ Summary:	Header files and more to develop GiNaC applications
 Summary(pl):	Pliki nag³ówkowe i inne do tworzenia aplikacji GiNaC
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	automake
 Requires:	cln-devel >= 1.1
 Requires:	pkgconfig
 
