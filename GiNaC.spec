@@ -31,7 +31,6 @@ Summary(pl):	Pliki nag³ówkowe i inne do tworzenia aplikacji GiNaC
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	cln-devel >= 1.1
-Requires:	pkgconfig
 
 %description devel
 This package contains include files and other resources you can use to
