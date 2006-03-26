@@ -1,13 +1,14 @@
 Summary:	C++ class library for symbolic calculations
 Summary(pl):	Biblioteka klas C++ do obliczeñ symbolicznych
 Name:		GiNaC
-Version:	1.3.1
-Release:	2
+Version:	1.3.3
+Release:	1
 License:	GPL
 Group:		Libraries
-Source0:	ftp://ftpthep.physik.uni-mainz.de/pub/GiNaC/%{name}-%{version}.tar.bz2
-# Source0-md5:	40c160ad313977293e5fea2acab09518
+Source0:	ftp://ftpthep.physik.uni-mainz.de/pub/GiNaC/ginac-%{version}.tar.bz2
+# Source0-md5:	6278b954d17013a4c027e4d52a4bd8b4
 Patch0:		%{name}-info.patch
+Patch1:		%{name}-c++.patch
 URL:		http://www.ginac.de/
 BuildRequires:	automake
 BuildRequires:	cln-devel >= 1.1
@@ -71,8 +72,9 @@ nie bêd±cych programistami) oraz narzêdzie viewgar, wy¶wietlaj±ce
 zawarto¶æ archiwów GiNaC.
 
 %prep
-%setup -q
+%setup -q -n ginac-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 cp -f /usr/share/automake/config.* .
@@ -102,22 +104,22 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libginac-*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ginac-config
-%attr(755,root,root) %{_libdir}/*.so
-%{_libdir}/*.la
+%attr(755,root,root) %{_libdir}/libginac.so
+%{_libdir}/libginac.la
 %{_includedir}/ginac
 %{_infodir}/*.info*
 %{_mandir}/man1/ginac-config.1*
-%{_aclocaldir}/*
-%{_pkgconfigdir}/*.pc
+%{_aclocaldir}/ginac.m4
+%{_pkgconfigdir}/ginac.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%{_libdir}/libginac.a
 
 %files utils
 %defattr(644,root,root,755)
