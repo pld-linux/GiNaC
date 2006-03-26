@@ -1,0 +1,29 @@
+--- ginac-1.3.3/ginac/indexed.cpp.orig	2005-05-19 16:24:35.000000000 +0200
++++ ginac-1.3.3/ginac/indexed.cpp	2006-03-26 10:53:44.571072250 +0200
+@@ -704,6 +704,8 @@
+ 	}
+ }
+ 
++ex simplify_indexed(const ex & e, exvector & free_indices, exvector & dummy_indices, const scalar_products & sp);
++
+ /** Simplify product of indexed expressions (commutative, noncommutative and
+  *  simple squares), return list of free indices. */
+ ex simplify_indexed_product(const ex & e, exvector & free_indices, exvector & dummy_indices, const scalar_products & sp)
+--- ginac-1.3.3/check/exam_structure.cpp.orig	2005-05-01 20:12:42.000000000 +0200
++++ ginac-1.3.3/check/exam_structure.cpp	2006-03-26 12:48:58.639174500 +0200
+@@ -47,6 +47,7 @@
+ 	return sprod(sprod_s(l, r));
+ }
+ 
++namespace GiNaC {
+ template <> void sprod::print(const print_context & c, unsigned level) const
+ {
+ 	const sprod_s & sp = get_struct();
+@@ -62,6 +63,7 @@
+ 	else
+ 		return make_sprod(sp.right, sp.left);
+ }
++}
+ 
+ unsigned exam_structure()
+ {
