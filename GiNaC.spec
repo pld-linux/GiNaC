@@ -1,5 +1,5 @@
 Summary:	C++ class library for symbolic calculations
-Summary(pl):	Biblioteka klas C++ do obliczeñ symbolicznych
+Summary(pl.UTF-8):   Biblioteka klas C++ do obliczeÅ„ symbolicznych
 Name:		GiNaC
 Version:	1.3.5
 Release:	1
@@ -21,13 +21,13 @@ GiNaC (which stands for "GiNaC is Not a CAS (Computer Algebra
 System)") is an open framework for symbolic computation within the C++
 programming language.
 
-%description -l pl
+%description -l pl.UTF-8
 GiNaC (co oznacza "GiNaC is Not a CAS (Computer Algebra System)") to
-otwarty szkielet do obliczeñ symbolicznych w jêzyku programowania C++.
+otwarty szkielet do obliczeÅ„ symbolicznych w jÄ™zyku programowania C++.
 
 %package devel
 Summary:	Header files and more to develop GiNaC applications
-Summary(pl):	Pliki nag³ówkowe i inne do tworzenia aplikacji GiNaC
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe i inne do tworzenia aplikacji GiNaC
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	cln-devel >= 1.1.0
@@ -36,25 +36,25 @@ Requires:	cln-devel >= 1.1.0
 This package contains include files and other resources you can use to
 develop GiNaC applications.
 
-%description devel -l pl
-Ten pakiet zawiera pliki nag³ówkowe i inne zasoby, których mo¿na
-u¿ywaæ do rozwiajania aplikacji opartych na GiNaC.
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nagÅ‚Ã³wkowe i inne zasoby, ktÃ³rych moÅ¼na
+uÅ¼ywaÄ‡ do rozwiajania aplikacji opartych na GiNaC.
 
 %package static
 Summary:	Static GiNaC library
-Summary(pl):	Statyczna biblioteka GiNaC
+Summary(pl.UTF-8):   Statyczna biblioteka GiNaC
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static GiNaC library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka GiNaC.
 
 %package utils
 Summary:	GiNaC-related utilities
-Summary(pl):	Narzêdzia zwi±zane z GiNaC
+Summary(pl.UTF-8):   NarzÄ™dzia zwiÄ…zane z GiNaC
 Group:		Applications/Science
 Requires:	%{name} = %{version}-%{release}
 
@@ -64,11 +64,11 @@ provides a simple and easy-to-use CAS-like interface to GiNaC for
 non-programmers, and the tool "viewgar" which displays the contents of
 GiNaC archives.
 
-%description utils -l pl
-Ten pakiet zawiera ginsh (interaktywn± pow³okê GiNaC, ktora udostêpnia
-prosty i ³atwy w u¿yciu, podobny do CAS interfejs do GiNaC dla osób
-nie bêd±cych programistami) oraz narzêdzie viewgar, wy¶wietlaj±ce
-zawarto¶æ archiwów GiNaC.
+%description utils -l pl.UTF-8
+Ten pakiet zawiera ginsh (interaktywnÄ… powÅ‚okÄ™ GiNaC, ktora udostÄ™pnia
+prosty i Å‚atwy w uÅ¼yciu, podobny do CAS interfejs do GiNaC dla osÃ³b
+nie bÄ™dÄ…cych programistami) oraz narzÄ™dzie viewgar, wyÅ›wietlajÄ…ce
+zawartoÅ›Ä‡ archiwÃ³w GiNaC.
 
 %prep
 %setup -q -n ginac-%{version}
