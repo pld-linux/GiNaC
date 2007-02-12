@@ -1,5 +1,5 @@
 Summary:	C++ class library for symbolic calculations
-Summary(pl.UTF-8):   Biblioteka klas C++ do obliczeń symbolicznych
+Summary(pl.UTF-8):	Biblioteka klas C++ do obliczeń symbolicznych
 Name:		GiNaC
 Version:	1.3.5
 Release:	1
@@ -27,7 +27,7 @@ otwarty szkielet do obliczeń symbolicznych w języku programowania C++.
 
 %package devel
 Summary:	Header files and more to develop GiNaC applications
-Summary(pl.UTF-8):   Pliki nagłówkowe i inne do tworzenia aplikacji GiNaC
+Summary(pl.UTF-8):	Pliki nagłówkowe i inne do tworzenia aplikacji GiNaC
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	cln-devel >= 1.1.0
@@ -42,7 +42,7 @@ używać do rozwiajania aplikacji opartych na GiNaC.
 
 %package static
 Summary:	Static GiNaC library
-Summary(pl.UTF-8):   Statyczna biblioteka GiNaC
+Summary(pl.UTF-8):	Statyczna biblioteka GiNaC
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -54,7 +54,7 @@ Statyczna biblioteka GiNaC.
 
 %package utils
 Summary:	GiNaC-related utilities
-Summary(pl.UTF-8):   Narzędzia związane z GiNaC
+Summary(pl.UTF-8):	Narzędzia związane z GiNaC
 Group:		Applications/Science
 Requires:	%{name} = %{version}-%{release}
 
