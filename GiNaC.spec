@@ -1,12 +1,12 @@
 Summary:	C++ class library for symbolic calculations
 Summary(pl.UTF-8):	Biblioteka klas C++ do obliczeń symbolicznych
 Name:		GiNaC
-Version:	1.3.5
+Version:	1.4.0
 Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	ftp://ftpthep.physik.uni-mainz.de/pub/GiNaC/ginac-%{version}.tar.bz2
-# Source0-md5:	2187bd0f79baf78514b5cbf737d67b01
+# Source0-md5:	e8eee1be68d32d5f5961afa2667928c3
 Patch0:		%{name}-info.patch
 URL:		http://www.ginac.de/
 BuildRequires:	automake
@@ -106,13 +106,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/ginac-config
 %attr(755,root,root) %{_libdir}/libginac.so
 %{_libdir}/libginac.la
 %{_includedir}/ginac
 %{_infodir}/*.info*
-%{_mandir}/man1/ginac-config.1*
-%{_aclocaldir}/ginac.m4
 %{_pkgconfigdir}/ginac.pc
 
 %files static
@@ -121,6 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files utils
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/ginac-excompiler
 %attr(755,root,root) %{_bindir}/ginsh
 %attr(755,root,root) %{_bindir}/viewgar
 %{_mandir}/man1/ginsh.1*
