@@ -2,7 +2,7 @@ Summary:	C++ class library for symbolic calculations
 Summary(pl.UTF-8):	Biblioteka klas C++ do obliczeń symbolicznych
 Name:		GiNaC
 Version:	1.4.3
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 Source0:	ftp://ftpthep.physik.uni-mainz.de/pub/GiNaC/ginac-%{version}.tar.bz2
@@ -10,9 +10,11 @@ Source0:	ftp://ftpthep.physik.uni-mainz.de/pub/GiNaC/ginac-%{version}.tar.bz2
 Patch0:		%{name}-info.patch
 URL:		http://www.ginac.de/
 BuildRequires:	automake
+BuildRequires:	autoconf
 BuildRequires:	bison >= 2.3
 BuildRequires:	cln-devel >= 1.1.6
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
 BuildRequires:	texinfo
@@ -82,7 +84,10 @@ zawartość archiwów GiNaC.
 %{__rm} ginac/input_parser.{cc,h}
 
 %build
-cp -f /usr/share/automake/config.* .
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure
 %{__make}
 
