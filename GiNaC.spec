@@ -9,12 +9,12 @@ Source0:	ftp://ftpthep.physik.uni-mainz.de/pub/GiNaC/ginac-%{version}.tar.bz2
 # Source0-md5:	abad55c4ae27d5d65f525fabefaddd05
 Patch0:		%{name}-info.patch
 URL:		http://www.ginac.de/
-BuildRequires:	automake
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.59
+BuildRequires:	automake >= 1:1.7
 BuildRequires:	bison >= 2.3
 BuildRequires:	cln-devel >= 1.1.6
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:1.5
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
 BuildRequires:	texinfo
