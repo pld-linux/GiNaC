@@ -1,12 +1,12 @@
 Summary:	C++ class library for symbolic calculations
 Summary(pl.UTF-8):	Biblioteka klas C++ do obliczeń symbolicznych
 Name:		GiNaC
-Version:	1.5.1
-Release:	2
+Version:	1.5.8
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	ftp://ftpthep.physik.uni-mainz.de/pub/GiNaC/ginac-%{version}.tar.bz2
-# Source0-md5:	ef05970ea87d1808ec7e75dad833deca
+# Source0-md5:	8693b3c9c3467694032ce9c8b3063d4c
 Patch0:		%{name}-info.patch
 URL:		http://www.ginac.de/
 BuildRequires:	autoconf >= 2.59
