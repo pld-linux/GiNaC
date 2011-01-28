@@ -13,6 +13,7 @@ BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	bison >= 2.3
 BuildRequires:	cln-devel >= 1.1.6
+BuildRequires:	gettext-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	pkgconfig
