@@ -1,25 +1,25 @@
 Summary:	C++ class library for symbolic calculations
 Summary(pl.UTF-8):	Biblioteka klas C++ do obliczeń symbolicznych
 Name:		GiNaC
-Version:	1.5.8
+Version:	1.6.0
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	ftp://ftpthep.physik.uni-mainz.de/pub/GiNaC/ginac-%{version}.tar.bz2
-# Source0-md5:	8693b3c9c3467694032ce9c8b3063d4c
+# Source0-md5:	6d1385b440c00705a368ad51d60a292d
 Patch0:		%{name}-info.patch
 URL:		http://www.ginac.de/
 BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1:1.7
+BuildRequires:	automake >= 1:1.8
 BuildRequires:	bison >= 2.3
-BuildRequires:	cln-devel >= 1.1.6
+BuildRequires:	cln-devel >= 1.2.2
 BuildRequires:	gettext-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
 BuildRequires:	texinfo
-Requires:	cln >= 1.1.6
+Requires:	cln >= 1.2.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,7 +36,7 @@ Summary:	Header files and more to develop GiNaC applications
 Summary(pl.UTF-8):	Pliki nagłówkowe i inne do tworzenia aplikacji GiNaC
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	cln-devel >= 1.1.6
+Requires:	cln-devel >= 1.2.2
 Requires:	libstdc++-devel
 
 %description devel
@@ -115,8 +115,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/libginac-*.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libginac-*.so.0
+%attr(755,root,root) %{_libdir}/libginac.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libginac.so.2
 
 %files devel
 %defattr(644,root,root,755)
