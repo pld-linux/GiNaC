@@ -79,7 +79,7 @@ zawartość archiwów GiNaC.
 
 %prep
 %setup -q -n ginac-%{version}
-%patch0 -p1
+%patch -P0 -p1
 %{__sed} -i -e 's/#include <iostream>/#include <cstdio>\n#include <iostream>/g' ginac/parser/lexer.cpp
 # generated with wrong bison version, miscompiled by gcc 4.1+
 #%{__rm} ginac/input_parser.{cc,h}
