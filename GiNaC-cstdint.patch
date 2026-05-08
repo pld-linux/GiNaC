@@ -1,0 +1,10 @@
+--- ginac-1.8.10/check/time_Gt.cpp.orig	2026-05-08 00:00:00.000000000 +0000
++++ ginac-1.8.10/check/time_Gt.cpp	2026-05-08 00:00:00.000000000 +0000
+@@ -21,6 +21,7 @@
+
+ #include <iostream>
+ #include "timer.h"
++#include <cstdint>
+ #include "ginac.h"
+ #include "parser/parse_context.h"
+ #include "Gt.h"

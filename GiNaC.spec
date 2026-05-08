@@ -1,13 +1,14 @@
 Summary:	C++ class library for symbolic calculations
 Summary(pl.UTF-8):	Biblioteka klas C++ do obliczeń symbolicznych
 Name:		GiNaC
-Version:	1.6.5
-Release:	4
+Version:	1.8.10
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://www.ginac.de/ginac-%{version}.tar.bz2
-# Source0-md5:	5379a3ce17c30277513ef8ca9e0f53c2
+# Source0-md5:	cda8d7a4b4193ad457d71195f5b77ee0
 Patch0:		%{name}-info.patch
+Patch1:		%{name}-cstdint.patch
 URL:		http://www.ginac.de/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.8
@@ -80,9 +81,7 @@ zawartość archiwów GiNaC.
 %prep
 %setup -q -n ginac-%{version}
 %patch -P0 -p1
-%{__sed} -i -e 's/#include <iostream>/#include <cstdio>\n#include <iostream>/g' ginac/parser/lexer.cpp
-# generated with wrong bison version, miscompiled by gcc 4.1+
-#%{__rm} ginac/input_parser.{cc,h}
+%patch -P1 -p1
 
 %build
 %{__libtoolize}
@@ -116,7 +115,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libginac.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libginac.so.5
+%attr(755,root,root) %ghost %{_libdir}/libginac.so.13
 
 %files devel
 %defattr(644,root,root,755)
@@ -133,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files utils
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/ginac-excompiler
+%attr(755,root,root) %{_libexecdir}/ginac-excompiler
 %attr(755,root,root) %{_bindir}/ginsh
 %attr(755,root,root) %{_bindir}/viewgar
 %{_mandir}/man1/ginsh.1*
