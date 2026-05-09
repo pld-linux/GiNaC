@@ -5,11 +5,11 @@ Version:	1.8.10
 Release:	1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://www.ginac.de/ginac-%{version}.tar.bz2
+Source0:	https://www.ginac.de/ginac-%{version}.tar.bz2
 # Source0-md5:	cda8d7a4b4193ad457d71195f5b77ee0
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-cstdint.patch
-URL:		http://www.ginac.de/
+URL:		https://www.ginac.de/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.8
 BuildRequires:	bison >= 2.3
