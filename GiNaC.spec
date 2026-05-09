@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	tests	# test suite
+
 Summary:	C++ class library for symbolic calculations
 Summary(pl.UTF-8):	Biblioteka klas C++ do obliczeń symbolicznych
 Name:		GiNaC
@@ -15,9 +19,10 @@ BuildRequires:	automake >= 1:1.8
 BuildRequires:	bison >= 2.3
 BuildRequires:	cln-devel >= 1.2.2
 BuildRequires:	gettext-tools
-BuildRequires:	libstdc++-devel
+BuildRequires:	libstdc++-devel >= 6:5
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	pkgconfig
+BuildRequires:	python3 >= 1:3
 BuildRequires:	readline-devel
 BuildRequires:	texinfo
 Requires:	cln >= 1.2.2
@@ -38,7 +43,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe i inne do tworzenia aplikacji GiNaC
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	cln-devel >= 1.2.2
-Requires:	libstdc++-devel
+Requires:	libstdc++-devel >= 6:5
 
 %description devel
 This package contains include files and other resources you can use to
@@ -87,17 +92,24 @@ zawartość archiwów GiNaC.
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
-%configure
+%configure \
+	PYTHON=%{__python3}
 %{__make}
 
+%if %{with tests}
 %{__make} check
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libginac.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -114,17 +126,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/libginac.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libginac.so.13
+%{_libdir}/libginac.so.*.*.*
+%ghost %{_libdir}/libginac.so.13
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libginac.so
-%{_libdir}/libginac.la
+%{_libdir}/libginac.so
 %{_includedir}/ginac
+%{_pkgconfigdir}/ginac.pc
 %{_infodir}/ginac.info*
 %{_infodir}/ginac-examples.info*
-%{_pkgconfigdir}/ginac.pc
 
 %files static
 %defattr(644,root,root,755)
